@@ -120,10 +120,18 @@ void crawl_weather(const char* url) {
             }
         }
     }
+    system("cls");
+    printf("\n\n\n\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t =======================================\n");
+    printf("                                                ");
+    printf("temp: %sC\t\t   \n", current_temp);
+    printf("                                                ");
+    printf("now weather: %s \t   \n", dust_status);
+    printf("                                                ");
+    printf("water: %s%%\t\t   \n", water_status);
+    printf("                                                =======================================\n");
+    Sleep(7000);
 
-    printf("temp: %sC\n", current_temp);
-    printf("now weather: %s\n", dust_status);
-    printf("water: %s%%\n", water_status);
     InternetCloseHandle(hConnect);
     InternetCloseHandle(hInternet);
 }

@@ -33,6 +33,7 @@ void startChattingService() {
     char message[SERVER_MAXBYTE] = "";
     HANDLE mainthread;
 
+    
     printf("Enter nickname: ");
     scanf("%s", nickname);
 

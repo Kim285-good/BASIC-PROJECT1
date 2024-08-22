@@ -1,5 +1,5 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
+﻿/*
+#define _CRT_SECURE_NO_WARNINGS
 
 #include "mysql.h"
 #include <stdio.h>
@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <windows.h>
 #include <wininet.h>
+#include <inttypes.h>
 
 #define SERVER "localhost"
 #define USER "root"
@@ -128,7 +129,7 @@ void crawl_weather(const char* url) {
                    strncat(dust_status, ptr, 1);
                }
            }
-       }*/
+       }*//*
         start_tag = strstr(buffer, "<span class=\"txt_weather\">");
 
         if (start_tag != NULL) {
@@ -163,7 +164,7 @@ void crawl_weather(const char* url) {
     }
 
     printf("temp: %sC\n", current_temp);
-    printf("now weather: %s\n",dust_status);
+    printf("now weather: %s\n", dust_status);
     printf("water: %s%%\n", water_status);
     InternetCloseHandle(hConnect);
     InternetCloseHandle(hInternet);
@@ -348,4 +349,4 @@ int main() {
     mysql_close(conn);
     return 0;
 }
-
+*/

@@ -12,21 +12,29 @@
 
 #define SERVER "localhost"
 #define USER "root"
-#define PASSWORD "dh0103052"
+#define PASSWORD "dh01030522"
 #define DATABASE_USERS "users"
 #define DATABASE_SCHEDULE "schedule"
 
 void startChattingService();
 
-
 void mainMenu(MYSQL* conn, const char* username) {
     while (1) {
-        printf("1. View News Title\n");
-        printf("2. View today's weather\n");
-        printf("3. Manage Schedule\n");
-        printf("4. Chatting Service\n");
-        printf("5. Logout\n");
-        printf("Enter your choice: ");
+        system("cls");
+        printf("\n\n\n\n\n\n\n\n\n\n");
+        printf("\t\t\t\t\t\t========================================================\n");
+        printf("                                                ");
+        printf("1. View News Title\t   \n");
+        printf("                                                ");
+        printf("2. View today's weather   \n");
+        printf("                                                ");
+        printf("3. Manage Schedule\t   \n");
+        printf("                                                ");
+        printf("4. Chatting Service\t   \n");
+        printf("                                                ");
+        printf("5. Logout\t\t   \n");
+        printf("                                                ========================================================\n");
+        printf("\t\t\t\t\t\tEnter your choice:");
         int option;
         scanf("%d", &option);
 
@@ -34,7 +42,23 @@ void mainMenu(MYSQL* conn, const char* username) {
             int select = 0;
             char str1[5];
             const char* url = "https://news.naver.com/section/";
-            printf("1.Politics 2.Economy 3.Society 4.Lifestyle/Culture 5.World 6.IT/Science: ");
+            system("cls");
+            printf("\n\n\n\n\n\n\n\n\n\n");
+            printf("\t\t\t\t\t\t========================================================\n");
+            printf("                                                ");
+            printf("1. Politics\t\t   \n");
+            printf("                                                ");
+            printf("2. Economy\t\t   \n");
+            printf("                                                ");
+            printf("3. Society\t\t   \n");
+            printf("                                                ");
+            printf("4. Lifestyle/Culture\t   \n");
+            printf("                                                ");
+            printf("5. World\t\t   \n");
+            printf("                                                ");
+            printf("5. IT/Science\t\t   \n");
+            printf("                                                ========================================================\n");
+            printf("\t\t\t\t\t\tEnter your choice:");
             scanf("%d", &select);
             if (select == 1) strcpy(str1, "100");
             else if (select == 2) strcpy(str1, "101");
@@ -46,7 +70,10 @@ void mainMenu(MYSQL* conn, const char* username) {
             char new_url[100];
             strcpy(new_url, url);
             strcat(new_url, str1);
+            system("cls");
+            printf("\n\n\n\n\n\n\n\n\n\n");
             crawl_webpage(new_url);
+            Sleep(5000);
         }
         else if (option == 2) {
             const char* url = "https://search.daum.net/search?w=tot&DA=YZR&t__nil_searchbox=btn&q=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+%EB%82%A0%EC%94%A8";
@@ -68,6 +95,7 @@ void mainMenu(MYSQL* conn, const char* username) {
 }
 
 int main() {
+    system("mode con cols=100 lines=50");
     SetConsoleOutputCP(CP_UTF8);
 
     MYSQL* conn = mysql_init(NULL);
@@ -83,27 +111,43 @@ int main() {
     }
 
     while (1) {
-        printf("1. Login\n");
-        printf("2. Register\n");
-        printf("Enter your choice: ");
+        system("cls");
+        printf("\n\n\n\n\n\n\n\n\n\n");
+        printf("\t\t\t\t\t\t========================================================\n");
+        printf("                                                ");
+        printf("\t1. Login\t   \n");
+        printf("                                                ");
+        printf("\t2. Register   \t   \n");
+        printf("                                                ========================================================\n");
+
+        printf("\t\t\t\t\t\tEnter your choice: ");
         int choice;
         scanf("%d", &choice);
 
         if (choice == 1) {
             char username[255];
             char password[255];
-
-            printf("Enter username: ");
+            system("cls");
+            printf("\n\n\n\n\n\n\n\n\n\n");
+            printf("\t\t\t\t\t\t\n");
+            printf("                                                ========================================================\n");
+            printf("\t                                                                  login tab\t   \n");
+            printf("                                                ========================================================\n");
+            printf("\t\t\t\t\t\tEnter username: ");
             scanf("%s", username);
-            printf("Enter password: ");
+            printf("\t\t\t\t\t\tEnter password: ");
             scanf("%s", password);
 
             if (login(conn, username, password)) {
-                printf("Login successful! Welcome %s!\n", username);
+                system("cls");
+                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\tLogin successful! Welcome %s!\n", username);
+                Sleep(2000);
                 mainMenu(conn, username);
             }
             else {
-                printf("Login failed!\n");
+                system("cls");
+                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\tLogin failed!\n");
+                Sleep(2000);
             }
         }
         else if (choice == 2) {
@@ -117,3 +161,8 @@ int main() {
     mysql_close(conn);
     return 0;
 }
+
+
+
+
+

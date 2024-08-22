@@ -3,10 +3,9 @@
 
 #include "database.h"
 
-
 #define SERVER "localhost"
 #define USER "root"
-#define PASSWORD "dh0103052"
+#define PASSWORD "dh01030522"
 #define DATABASE_USERS "users"
 #define DATABASE_SCHEDULE "schedule"
 
@@ -39,9 +38,15 @@ void registerUser(MYSQL* conn) {
     char username[255];
     char password[255];
 
-    printf("Enter new username: ");
+    system("cls");
+    printf("\n\n\n\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t\n");
+    printf("                                       ========================================================\n");
+    printf("\t                                                        register tab\t   \n");
+    printf("                                       ========================================================\n");
+    printf("\t\t\t\t\t\tEnter username: ");
     scanf("%s", username);
-    printf("Enter new password: ");
+    printf("\t\t\t\t\t\tEnter password: ");
     scanf("%s", password);
 
     char query[1000];

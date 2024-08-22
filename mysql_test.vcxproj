@@ -114,6 +114,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>libmysql.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -132,8 +135,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="test.c" />
-    <ClCompile Include="weather1.c" />
+    <ClCompile Include="chat.c" />
+    <ClCompile Include="database.c" />
+    <ClCompile Include="main1.c" />
+    <ClCompile Include="schedule.c" />
+    <ClCompile Include="webcrawler.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="chat.h" />
+    <ClInclude Include="database.h" />
+    <ClInclude Include="schedule.h" />
+    <ClInclude Include="webcrawler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
